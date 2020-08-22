@@ -47,12 +47,9 @@ Python 2.7, 3.5+
 
 ## Installation
 
-<div class="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
-    <span data-ty="input">pip install bankfind</span>
-    <span data-ty="progress"></span>
-    <span data-ty>Successfully installed bankfind</span>
-    <a href="#" data-terminal-control="">restart ↻</a>
-</div>
+```python
+pip install bankfind
+```
 
 ## Example
 
