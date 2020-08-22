@@ -1,0 +1,43 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "bankfind"
+author = "Doug Guthrie"
+author-email = "douglas.p.guthrie@gmail.com"
+home-page = "https://github.com/dpguthrie/bankfind"
+keywords = "banking, finance, fdic, api, requests"
+requires-python="2.7,>=3.5"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 2.7",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+]
+requires = [
+    "requests == 2.24.0",
+    "pandas>=0.24"
+]
+description-file = "README.md"
+
+[tool.flit.metadata.requires-extra]
+test = [
+    'pytest',
+    'coverage',
+    'pytest-cov'
+]
+doc = [
+    'mkdocs-material',
+    'pymdown-extensions'
+]
+
+[tool.flit.metadata.urls]
+Documentation = "https://bankfind.dpguthrie.com"

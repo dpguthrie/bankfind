@@ -1,0 +1,63 @@
+# Project Information
+site_name: bankfind
+site_description: Python wrapper allowing developers access to the FDIC’s publically available bank data
+site_author: Doug Guthrie
+
+# Repository
+repo_name: bankfind
+repo_url: https://github.com/dpguthrie/bankfind
+
+# Configuration
+theme:
+    name: material
+    palette:
+        primary: black
+    icon:
+        repo: fontawesome/brands/github-alt
+    logo: img/small_logo.png
+    favicon: img/favicon.png
+    language: en
+
+# Extras
+extra:
+    social:
+        - icon: fontawesome/brands/github-alt
+          link: https://github.com/dpguthrie
+        - icon: fontawesome/brands/linkedin
+          link: https://www.linkedin.com/in/douglas-guthrie-07994a48/
+        - icon: fontawesome/brands/medium
+          link: https://medium.com/@douglas.p.guthrie
+        - icon: fontawesome/solid/globe
+          link: https://dpguthrie.com
+
+extra_css:
+    - css/termynal.css
+
+extra_javascript:
+    - js/termynal.js
+    - js/custom.js
+
+# Extensions
+markdown_extensions:
+    - admonition
+    - codehilite:
+        guess_lang: false
+    - toc:
+        permalink: true
+    - pymdownx.superfences
+    - pymdownx.tabbed
+    - pymdownx.details
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+
+# Google Analytics
+google_analytics:
+    - UA-175202147-1
+    - auto
+
+nav:
+    - index.md
+    - functions.md
+    - filtering.md
+    - release_notes.md
