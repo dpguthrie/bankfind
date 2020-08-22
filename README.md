@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="#"><img src="img/logo.png"></a>
+    <a href="#"><img src="docs/docs/img/logo.png"></a>
 </p>
 <p align="center">
     <em>Python interface to the FDIC's API for publically available bank data</em>
