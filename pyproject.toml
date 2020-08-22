@@ -22,7 +22,7 @@ classifiers = [
     "Programming Language :: Python :: 3.8",
 ]
 requires = [
-    "requests == 2.24.0",
+    "requests==2.24.0",
     "pandas>=0.24"
 ]
 description-file = "README.md"
