@@ -8,7 +8,6 @@ author = "Doug Guthrie"
 author-email = "douglas.p.guthrie@gmail.com"
 home-page = "https://github.com/dpguthrie/bankfind"
 keywords = "banking, finance, fdic, api, requests"
-requires-python="2.7,>=3.5"
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
