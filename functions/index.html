@@ -1,0 +1,1473 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Python wrapper allowing developers access to the FDIC’s publically available bank data">
+      
+      
+      
+        <meta name="author" content="Doug Guthrie">
+      
+      <link rel="shortcut icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.5">
+    
+    
+      
+        <title>Functions - bankfind</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.63b94e9e.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7f672a1f.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../css/termynal.css">
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-175202147-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#get_failures" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="bankfind" class="md-header-nav__button md-logo" aria-label="bankfind">
+      
+  <img src="../img/small_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            bankfind
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Functions
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/dpguthrie/bankfind/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bankfind
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="bankfind" class="md-nav__button md-logo" aria-label="bankfind">
+      
+  <img src="../img/small_logo.png" alt="logo">
+
+    </a>
+    bankfind
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/dpguthrie/bankfind/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bankfind
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Functions
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Functions" class="md-nav__link md-nav__link--active">
+      Functions
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get_failures" class="md-nav__link">
+    get_failures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_history" class="md-nav__link">
+    get_history
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_institutions" class="md-nav__link">
+    get_institutions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_locations" class="md-nav__link">
+    get_locations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_summary" class="md-nav__link">
+    get_summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../filtering/" title="Filtering" class="md-nav__link">
+      Filtering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../release_notes/" title="Release notes" class="md-nav__link">
+      Release notes
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get_failures" class="md-nav__link">
+    get_failures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_history" class="md-nav__link">
+    get_history
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_institutions" class="md-nav__link">
+    get_institutions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_locations" class="md-nav__link">
+    get_locations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_summary" class="md-nav__link">
+    get_summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/dpguthrie/bankfind/edit/master/docs/functions.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                  <h1>Functions</h1>
+                
+                <h2 id="get_failures"><strong>get_failures</strong><a class="headerlink" href="#get_failures" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Details</label><div class="tabbed-content">
+<ul>
+<li><em>Description</em>:  Detail on failed financial institutions</li>
+<li><em>Return</em>:  <code>dict</code></li>
+<li><em>Arguments</em></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Argument</th>
+<th align="left">Description</th>
+<th align="left">Type</th>
+<th align="left">Default</th>
+<th align="left">Required</th>
+<th align="left">Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">filters</td>
+<td align="left">Filter(s) for the bank search</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>None</code></td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">fields</td>
+<td align="left">Comma delimited list of fields to retrieve</td>
+<td align="left"><code>str</code></td>
+<td align="left">All fields included by default</td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">sort_by</td>
+<td align="left">Field name by which to sort returned data</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>FAILDATE</code></td>
+<td align="left">optional</td>
+<td align="left">See meta_dict</td>
+</tr>
+<tr>
+<td align="left">sort_order</td>
+<td align="left">Indicator if ascending or descending</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>DESC</code></td>
+<td align="left">optional</td>
+<td align="left"><code>ASC</code><br><code>DESC</code></td>
+</tr>
+<tr>
+<td align="left">limit</td>
+<td align="left">Number of records to return</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>10000</code></td>
+<td align="left">optional</td>
+<td align="left">0 to 10,000</td>
+</tr>
+<tr>
+<td align="left">offset</td>
+<td align="left">Offset of page to return</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>0</code></td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">output</td>
+<td align="left">Format of data to return</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>json</code></td>
+<td align="left">optional</td>
+<td align="left"><code>json</code><br><code>pandas</code></td>
+</tr>
+<tr>
+<td align="left">limit</td>
+<td align="left">Number of records to return</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>10000</code></td>
+<td align="left">optional</td>
+<td align="left">0 to 10,000</td>
+</tr>
+<tr>
+<td align="left">friendly_fields</td>
+<td align="left">Replace keys / column names with friendlier title</td>
+<td align="left"><code>bool</code></td>
+<td align="left"><code>False</code></td>
+<td align="left">optional</td>
+<td align="left"><code>True</code><br><code>False</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Example</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">bankfind</span> <span class="k">as</span> <span class="nn">bf</span>
+
+<span class="hll"><span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_failures</span><span class="p">()</span>
+</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Data</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;QBFDEP&#39;</span><span class="p">:</span> <span class="mi">139526</span><span class="p">,</span>
+        <span class="s1">&#39;PSTALP&#39;</span><span class="p">:</span> <span class="s1">&#39;WV&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FIN&#39;</span><span class="p">:</span> <span class="s1">&#39;10536&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FAILDATE&#39;</span><span class="p">:</span> <span class="s1">&#39;04/03/2020&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;RESTYPE&#39;</span><span class="p">:</span> <span class="s1">&#39;FAILURE&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CITYST&#39;</span><span class="p">:</span> <span class="s1">&#39;BARBOURSVILLE, WV&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SAVR&#39;</span><span class="p">:</span> <span class="s1">&#39;DIF&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;RESTYPE1&#39;</span><span class="p">:</span> <span class="s1">&#39;PA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CHCLASS1&#39;</span><span class="p">:</span> <span class="s1">&#39;NM&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;THE FIRST STATE BANK&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;COST&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="s1">&#39;QBFASSET&#39;</span><span class="p">:</span> <span class="mi">152400</span><span class="p">,</span>
+        <span class="s1">&#39;CERT&#39;</span><span class="p">:</span> <span class="mi">14361</span><span class="p">,</span>
+        <span class="s1">&#39;FAILYR&#39;</span><span class="p">:</span> <span class="s1">&#39;2020&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;4102&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
+<h2 id="get_history"><strong>get_history</strong><a class="headerlink" href="#get_history" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Details</label><div class="tabbed-content">
+<ul>
+<li><em>Description</em>:  Detail on structure change events</li>
+<li><em>Return</em>:  <code>dict</code></li>
+<li><em>Arguments</em></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Argument</th>
+<th align="left">Description</th>
+<th align="left">Type</th>
+<th align="left">Default</th>
+<th align="left">Required</th>
+<th align="left">Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">filters</td>
+<td align="left">Filter(s) for the bank search</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>None</code></td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">search</td>
+<td align="left">Flexible text search against institution records (fuzzy name matching)</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>None</code></td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">fields</td>
+<td align="left">Comma delimited list of fields to retrieve</td>
+<td align="left"><code>str</code></td>
+<td align="left">All fields included by default</td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">sort_by</td>
+<td align="left">Field name by which to sort returned data</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>FAILDATE</code></td>
+<td align="left">optional</td>
+<td align="left">See meta_dict</td>
+</tr>
+<tr>
+<td align="left">sort_order</td>
+<td align="left">Indicator if ascending or descending</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>DESC</code></td>
+<td align="left">optional</td>
+<td align="left"><code>ASC</code><br><code>DESC</code></td>
+</tr>
+<tr>
+<td align="left">limit</td>
+<td align="left">Number of records to return</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>10000</code></td>
+<td align="left">optional</td>
+<td align="left">0 to 10,000</td>
+</tr>
+<tr>
+<td align="left">offset</td>
+<td align="left">Offset of page to return</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>0</code></td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">output</td>
+<td align="left">Format of data to return</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>json</code></td>
+<td align="left">optional</td>
+<td align="left"><code>json</code><br><code>pandas</code></td>
+</tr>
+<tr>
+<td align="left">limit</td>
+<td align="left">Number of records to return</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>10000</code></td>
+<td align="left">optional</td>
+<td align="left">0 to 10,000</td>
+</tr>
+<tr>
+<td align="left">friendly_fields</td>
+<td align="left">Replace keys / column names with friendlier title</td>
+<td align="left"><code>bool</code></td>
+<td align="left"><code>False</code></td>
+<td align="left">optional</td>
+<td align="left"><code>True</code><br><code>False</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Example</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">bankfind</span> <span class="k">as</span> <span class="nn">bf</span>
+
+<span class="hll"><span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_history</span><span class="p">()</span>
+</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+
+</div>
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">Data</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;REPORT_TYPE&#39;</span><span class="p">:</span> <span class="mi">711</span><span class="p">,</span>
+        <span class="s1">&#39;INSAGENT1&#39;</span><span class="p">:</span> <span class="s1">&#39;DIF&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;INSAGENT2&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OFF_PCITY&#39;</span><span class="p">:</span> <span class="s1">&#39;Colorado Springs&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;EFFDATE&#39;</span><span class="p">:</span> <span class="s1">&#39;2020-07-27T00:00:00&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CHARTAGENT&#39;</span><span class="p">:</span> <span class="s1">&#39;STATE&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;PSTALP&#39;</span><span class="p">:</span> <span class="s1">&#39;NE&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CLASS&#39;</span><span class="p">:</span> <span class="s1">&#39;NM&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FRM_OFF_SERVTYPE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;OFF_LONGITUDE&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">104.87635200138965</span><span class="p">,</span>
+        <span class="s1">&#39;OFF_PSTATE&#39;</span><span class="p">:</span> <span class="s1">&#39;COLORADO&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;BANK_INSURED&#39;</span><span class="p">:</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CNTYNUM&#39;</span><span class="p">:</span> <span class="mi">157</span><span class="p">,</span>
+        <span class="s1">&#39;INSTNAME&#39;</span><span class="p">:</span> <span class="s1">&#39;First State Bank&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OFF_PADDR&#39;</span><span class="p">:</span> <span class="s1">&#39;3216 W Colorado AVE&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FRM_CLCODE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;OFF_SERVTYPE_DESC&#39;</span><span class="p">:</span> <span class="s1">&#39;FULL SERVICE - BRICK AND MORTAR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TRANSNUM&#39;</span><span class="p">:</span> <span class="mi">202012234</span><span class="p">,</span>
+        <span class="s1">&#39;MZIPREST&#39;</span><span class="p">:</span> <span class="s1">&#39;0000&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FDICREGION_DESC&#39;</span><span class="p">:</span> <span class="s1">&#39;KANSAS CITY&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FRM_OFF_CLCODE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;PZIP5&#39;</span><span class="p">:</span> <span class="s1">&#39;69361&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OFF_PZIPREST&#39;</span><span class="p">:</span> <span class="s1">&#39;1906&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OFF_NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;First State Bank Colorado Springs West Branch&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CERT&#39;</span><span class="p">:</span> <span class="mi">15586</span><span class="p">,</span>
+        <span class="s1">&#39;OFF_PSTALP&#39;</span><span class="p">:</span> <span class="s1">&#39;CO&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;PCITY&#39;</span><span class="p">:</span> <span class="s1">&#39;SCOTTSBLUFF&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;LATITUDE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;PROCDATE&#39;</span><span class="p">:</span> <span class="s1">&#39;2020-08-05T00:00:00&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ACQDATE&#39;</span><span class="p">:</span> <span class="s1">&#39;9999-12-31T00:00:00&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CHANGECODE&#39;</span><span class="p">:</span> <span class="mi">711</span><span class="p">,</span>
+        <span class="s1">&#39;PADDR&#39;</span><span class="p">:</span> <span class="s1">&#39;2002 BROADWAY&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;MZIP5&#39;</span><span class="p">:</span> <span class="s1">&#39;69361&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FI_UNINUM&#39;</span><span class="p">:</span> <span class="mi">9873</span><span class="p">,</span>
+        <span class="s1">&#39;LONGITUDE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;FRM_LATITUDE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;STATE&#39;</span><span class="p">:</span> <span class="s1">&#39;NEBRASKA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;MSTALP&#39;</span><span class="p">:</span> <span class="s1">&#39;NE&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CNTYNAME&#39;</span><span class="p">:</span> <span class="s1">&#39;SCOTTS BLUFF&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ACQ_UNINUM&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;OFF_CNTYNUM&#39;</span><span class="p">:</span> <span class="mi">41</span><span class="p">,</span>
+        <span class="s1">&#39;FI_EFFDATE&#39;</span><span class="p">:</span> <span class="s1">&#39;2019-06-10T00:00:00&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FDICREGION&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+        <span class="s1">&#39;MSTATE&#39;</span><span class="p">:</span> <span class="s1">&#39;NEBRASKA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FRM_LONGITUDE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;OFF_CNTYNAME&#39;</span><span class="p">:</span> <span class="s1">&#39;EL PASO&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CHANGECODE_DESC&#39;</span><span class="p">:</span> <span class="s1">&#39;BRANCH OPENING&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;MCITY&#39;</span><span class="p">:</span> <span class="s1">&#39;SCOTTSBLUFF&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;MADDR&#39;</span><span class="p">:</span> <span class="s1">&#39;P.O. BOX  1267&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OFF_PZIP5&#39;</span><span class="p">:</span> <span class="s1">&#39;80904&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OUT_UNINUM&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;PZIPREST&#39;</span><span class="p">:</span> <span class="s1">&#39;0000&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ORG_STAT_FLG&#39;</span><span class="p">:</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FRM_OFF_LONGITUDE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;ENDDATE&#39;</span><span class="p">:</span> <span class="s1">&#39;9999-12-31T00:00:00&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;UNINUM&#39;</span><span class="p">:</span> <span class="mi">625952</span><span class="p">,</span>
+        <span class="s1">&#39;OFF_NUM&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="s1">&#39;CLCODE&#39;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+        <span class="s1">&#39;OFF_SERVTYPE&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+        <span class="s1">&#39;FRM_OFF_CNTYNUM&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;ORG_ROLE_CDE&#39;</span><span class="p">:</span> <span class="s1">&#39;BR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;REGAGENT&#39;</span><span class="p">:</span> <span class="s1">&#39;FDIC&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OFF_LATITUDE&#39;</span><span class="p">:</span> <span class="mf">38.85583298227556</span><span class="p">,</span>
+        <span class="s1">&#39;ESTDATE&#39;</span><span class="p">:</span> <span class="s1">&#39;2020-07-27T00:00:00&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FRM_OFF_LATITUDE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;TRUST&#39;</span><span class="p">:</span> <span class="s1">&#39;Full&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;20eb98a36c7c77cf6bc019ce391ba7c9&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
+<h2 id="get_institutions"><strong>get_institutions</strong><a class="headerlink" href="#get_institutions" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Details</label><div class="tabbed-content">
+<ul>
+<li><em>Description</em>:  List of financial institutions</li>
+<li><em>Return</em>:  <code>dict</code></li>
+<li><em>Arguments</em></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Argument</th>
+<th align="left">Description</th>
+<th align="left">Type</th>
+<th align="left">Default</th>
+<th align="left">Required</th>
+<th align="left">Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">filters</td>
+<td align="left">Filter(s) for the bank search</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>None</code></td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">search</td>
+<td align="left">Flexible text search against institution records (fuzzy name matching)</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>None</code></td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">fields</td>
+<td align="left">Comma delimited list of fields to retrieve</td>
+<td align="left"><code>str</code></td>
+<td align="left">All fields included by default</td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">sort_by</td>
+<td align="left">Field name by which to sort returned data</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>FAILDATE</code></td>
+<td align="left">optional</td>
+<td align="left">See meta_dict</td>
+</tr>
+<tr>
+<td align="left">sort_order</td>
+<td align="left">Indicator if ascending or descending</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>DESC</code></td>
+<td align="left">optional</td>
+<td align="left"><code>ASC</code><br><code>DESC</code></td>
+</tr>
+<tr>
+<td align="left">limit</td>
+<td align="left">Number of records to return</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>10000</code></td>
+<td align="left">optional</td>
+<td align="left">0 to 10,000</td>
+</tr>
+<tr>
+<td align="left">offset</td>
+<td align="left">Offset of page to return</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>0</code></td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">output</td>
+<td align="left">Format of data to return</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>json</code></td>
+<td align="left">optional</td>
+<td align="left"><code>json</code><br><code>pandas</code></td>
+</tr>
+<tr>
+<td align="left">limit</td>
+<td align="left">Number of records to return</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>10000</code></td>
+<td align="left">optional</td>
+<td align="left">0 to 10,000</td>
+</tr>
+<tr>
+<td align="left">friendly_fields</td>
+<td align="left">Replace keys / column names with friendlier title</td>
+<td align="left"><code>bool</code></td>
+<td align="left"><code>False</code></td>
+<td align="left">optional</td>
+<td align="left"><code>True</code><br><code>False</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Example</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">bankfind</span> <span class="k">as</span> <span class="nn">bf</span>
+
+<span class="hll"><span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_institutions</span><span class="p">()</span>
+</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+
+</div>
+<input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><label for="__tabbed_3_3">Data</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;ZIP&#39;</span><span class="p">:</span> <span class="s1">&#39;31087&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SASSER&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;CHRTAGNT&#39;</span><span class="p">:</span> <span class="s1">&#39;STATE&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CONSERVE&#39;</span><span class="p">:</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;REGAGENT2&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;STNAME&#39;</span><span class="p">:</span> <span class="s1">&#39;Georgia&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ROAQ&#39;</span><span class="p">:</span> <span class="mf">0.65</span><span class="p">,</span>
+        <span class="s1">&#39;INSDATE&#39;</span><span class="p">:</span> <span class="s1">&#39;01/01/1934&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TE06N528&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TE06N529&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OFFOA&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;FDICDBS&#39;</span><span class="p">:</span> <span class="s1">&#39;05&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;NAMEHCR&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OCCDIST&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CMSA&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;DEPDOM&#39;</span><span class="p">:</span> <span class="mi">59267</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA_METRO_FLG&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TE10N528&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;NETINC&#39;</span><span class="p">:</span> <span class="mi">124</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA_DIV_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;MUTUAL&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;MSA_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OFFFOR&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;INSSAVE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;CHARTER&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;RSSDHCR&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TE04N528&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TE04N529&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CERT&#39;</span><span class="p">:</span> <span class="s1">&#39;10057&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;STALP&#39;</span><span class="p">:</span> <span class="s1">&#39;GA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SPECGRP&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="s1">&#39;CFPBENDDTE&#39;</span><span class="p">:</span> <span class="s1">&#39;31-Dec-9999&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TE09N528&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;IBA&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;INSBIF&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;INSFDIC&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;ENDEFYMD&#39;</span><span class="p">:</span> <span class="s1">&#39;12/31/9999&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;MSA&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TE02N528&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CB&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TE02N529&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TE07N528&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FDICSUPV&#39;</span><span class="p">:</span> <span class="s1">&#39;Atlanta&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FED&#39;</span><span class="p">:</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;REGAGNT&#39;</span><span class="p">:</span> <span class="s1">&#39;FDIC&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;NEWCERT&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;ASSET&#39;</span><span class="p">:</span> <span class="mi">76416</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA_MICRO_FLG&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OFFICES&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;STCNTY&#39;</span><span class="p">:</span> <span class="s1">&#39;13141&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CSA_FLG&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CITY&#39;</span><span class="p">:</span> <span class="s1">&#39;Sparta&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CLCODE&#39;</span><span class="p">:</span> <span class="s1">&#39;21&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;INACTIVE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;CMSA_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;STALPHCR&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;INSAGNT1&#39;</span><span class="p">:</span> <span class="s1">&#39;DIF&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;BKCLASS&#39;</span><span class="p">:</span> <span class="s1">&#39;NM&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;EFFDATE&#39;</span><span class="p">:</span> <span class="s1">&#39;08/31/2009&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SUPRV_FD&#39;</span><span class="p">:</span> <span class="s1">&#39;05&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;DATEUPDT&#39;</span><span class="p">:</span> <span class="s1">&#39;09/02/2009&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;INSAGNT2&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TE05N528&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TE05N529&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ROEQ&#39;</span><span class="p">:</span> <span class="mf">2.96</span><span class="p">,</span>
+        <span class="s1">&#39;FDICREGN&#39;</span><span class="p">:</span> <span class="s1">&#39;Atlanta&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FLDOFF&#39;</span><span class="p">:</span> <span class="s1">&#39;Savannah&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;WEBADDR&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.bankofhancock.com&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;QBPRCOML&#39;</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;COUNTY&#39;</span><span class="p">:</span> <span class="s1">&#39;Hancock&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;DOCKET&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ULTCERT&#39;</span><span class="p">:</span> <span class="s1">&#39;10057&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OTSDIST&#39;</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;LAW_SASSER_FLG&#39;</span><span class="p">:</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;PARCERT&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ROA&#39;</span><span class="p">:</span> <span class="mf">0.65</span><span class="p">,</span>
+        <span class="s1">&#39;CFPBFLAG&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;RISDATE&#39;</span><span class="p">:</span> <span class="s1">&#39;12/31/2019&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ROE&#39;</span><span class="p">:</span> <span class="mf">2.96</span><span class="p">,</span>
+        <span class="s1">&#39;INSCOML&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;OTSREGNM&#39;</span><span class="p">:</span> <span class="s1">&#39;Southeast&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;EQ&#39;</span><span class="p">:</span> <span class="s1">&#39;17026&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;RUNDATE&#39;</span><span class="p">:</span> <span class="s1">&#39;08/08/2020&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TE03N528&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TE03N529&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;Bank of Hancock County&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;HCTMULT&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA_DIV&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ADDRESS&#39;</span><span class="p">:</span> <span class="s1">&#39;12855 Broad Street&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OFFDOM&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;SUBCHAPS&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;PROCDATE&#39;</span><span class="p">:</span> <span class="s1">&#39;09/02/2009&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;INSSAIF&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;DENOVO&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;33300&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ACTIVE&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;CFPBEFFDTE&#39;</span><span class="p">:</span> <span class="s1">&#39;31-Dec-9999&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;STCHRTR&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;REPDTE&#39;</span><span class="p">:</span> <span class="s1">&#39;03/31/2020&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FORM31&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CSA&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;INSDIF&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;TE01N529&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ROAPTX&#39;</span><span class="p">:</span> <span class="mf">0.65</span><span class="p">,</span>
+        <span class="s1">&#39;STNUM&#39;</span><span class="p">:</span> <span class="s1">&#39;13&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OAKAR&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;SPECGRPN&#39;</span><span class="p">:</span> <span class="s1">&#39;Other Specialized Under 1 Billion&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ROAPTXQ&#39;</span><span class="p">:</span> <span class="mf">0.65</span><span class="p">,</span>
+        <span class="s1">&#39;FED_RSSD&#39;</span><span class="p">:</span> <span class="s1">&#39;37&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CSA_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA_METRO&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;INSTCRCD&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;DEP&#39;</span><span class="p">:</span> <span class="mi">59267</span><span class="p">,</span>
+        <span class="s1">&#39;UNINUM&#39;</span><span class="p">:</span> <span class="s1">&#39;6429&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;INSTAG&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TE01N528&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CITYHCR&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TRACT&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA&#39;</span><span class="p">:</span> <span class="s1">&#39;Milledgeville, GA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA_DIV_FLG&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TE08N528&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;NETINCQ&#39;</span><span class="p">:</span> <span class="mi">124</span><span class="p">,</span>
+        <span class="s1">&#39;CHANGEC1&#39;</span><span class="p">:</span> <span class="mi">520</span><span class="p">,</span>
+        <span class="s1">&#39;CERTCONS&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ESTYMD&#39;</span><span class="p">:</span> <span class="s1">&#39;09/01/1904&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FEDCHRTR&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;TRUST&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;10057&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
+<h2 id="get_locations"><strong>get_locations</strong><a class="headerlink" href="#get_locations" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Details</label><div class="tabbed-content">
+<ul>
+<li><em>Description</em>:  Detail on failed financial institutions</li>
+<li><em>Return</em>:  <code>dict</code></li>
+<li><em>Arguments</em></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Argument</th>
+<th align="left">Description</th>
+<th align="left">Type</th>
+<th align="left">Default</th>
+<th align="left">Required</th>
+<th align="left">Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">filters</td>
+<td align="left">Filter(s) for the bank search</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>None</code></td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">fields</td>
+<td align="left">Comma delimited list of fields to retrieve</td>
+<td align="left"><code>str</code></td>
+<td align="left">All fields included by default</td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">sort_by</td>
+<td align="left">Field name by which to sort returned data</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>FAILDATE</code></td>
+<td align="left">optional</td>
+<td align="left">See meta_dict</td>
+</tr>
+<tr>
+<td align="left">sort_order</td>
+<td align="left">Indicator if ascending or descending</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>DESC</code></td>
+<td align="left">optional</td>
+<td align="left"><code>ASC</code><br><code>DESC</code></td>
+</tr>
+<tr>
+<td align="left">limit</td>
+<td align="left">Number of records to return</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>10000</code></td>
+<td align="left">optional</td>
+<td align="left">0 to 10,000</td>
+</tr>
+<tr>
+<td align="left">offset</td>
+<td align="left">Offset of page to return</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>0</code></td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">output</td>
+<td align="left">Format of data to return</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>json</code></td>
+<td align="left">optional</td>
+<td align="left"><code>json</code><br><code>pandas</code></td>
+</tr>
+<tr>
+<td align="left">limit</td>
+<td align="left">Number of records to return</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>10000</code></td>
+<td align="left">optional</td>
+<td align="left">0 to 10,000</td>
+</tr>
+<tr>
+<td align="left">friendly_fields</td>
+<td align="left">Replace keys / column names with friendlier title</td>
+<td align="left"><code>bool</code></td>
+<td align="left"><code>False</code></td>
+<td align="left">optional</td>
+<td align="left"><code>True</code><br><code>False</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Example</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">bankfind</span> <span class="k">as</span> <span class="nn">bf</span>
+
+<span class="hll"><span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_locations</span><span class="p">()</span>
+</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+
+</div>
+<input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><label for="__tabbed_4_3">Data</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;ZIP&#39;</span><span class="p">:</span> <span class="s1">&#39;21613&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;15700&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;BKCLASS&#39;</span><span class="p">:</span> <span class="s1">&#39;SM&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FI_UNINUM&#39;</span><span class="p">:</span> <span class="mi">3221</span><span class="p">,</span>
+        <span class="s1">&#39;STNAME&#39;</span><span class="p">:</span> <span class="s1">&#39;Maryland&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CSA&#39;</span><span class="p">:</span> <span class="s1">&#39;Salisbury-Cambridge, MD-DE&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;COUNTY&#39;</span><span class="p">:</span> <span class="s1">&#39;Dorchester&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;MAINOFF&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;OFFNAME&#39;</span><span class="p">:</span> <span class="s1">&#39;WOODS ROAD BRANCH&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA_METRO_FLG&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA_MICRO_FLG&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CSA_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;480&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA_METRO&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA_DIV_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;RUNDATE&#39;</span><span class="p">:</span> <span class="s1">&#39;08/07/2020&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;1880 Bank&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;UNINUM&#39;</span><span class="p">:</span> <span class="mi">204568</span><span class="p">,</span>
+        <span class="s1">&#39;SERVTYPE&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+        <span class="s1">&#39;CSA_FLG&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;STCNTY&#39;</span><span class="p">:</span> <span class="s1">&#39;24019&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA&#39;</span><span class="p">:</span> <span class="s1">&#39;Cambridge, MD&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA_DIV&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CBSA_DIV_FLG&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CITY&#39;</span><span class="p">:</span> <span class="s1">&#39;Cambridge&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ADDRESS&#39;</span><span class="p">:</span> <span class="s1">&#39;803 Woods Road&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CERT&#39;</span><span class="p">:</span> <span class="s1">&#39;4829&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;STALP&#39;</span><span class="p">:</span> <span class="s1">&#39;MD&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OFFNUM&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;ESTYMD&#39;</span><span class="p">:</span> <span class="s1">&#39;12/23/1968&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;204568&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
+<h2 id="get_summary"><strong>get_summary</strong><a class="headerlink" href="#get_summary" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Details</label><div class="tabbed-content">
+<ul>
+<li><em>Description</em>:  Detail on failed financial institutions</li>
+<li><em>Return</em>:  <code>dict</code></li>
+<li><em>Arguments</em></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Argument</th>
+<th align="left">Description</th>
+<th align="left">Type</th>
+<th align="left">Default</th>
+<th align="left">Required</th>
+<th align="left">Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">filters</td>
+<td align="left">Filter(s) for the bank search</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>None</code></td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">fields</td>
+<td align="left">Comma delimited list of fields to retrieve</td>
+<td align="left"><code>str</code></td>
+<td align="left">All fields included by default</td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">sort_by</td>
+<td align="left">Field name by which to sort returned data</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>FAILDATE</code></td>
+<td align="left">optional</td>
+<td align="left">See meta_dict</td>
+</tr>
+<tr>
+<td align="left">sort_order</td>
+<td align="left">Indicator if ascending or descending</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>DESC</code></td>
+<td align="left">optional</td>
+<td align="left"><code>ASC</code><br><code>DESC</code></td>
+</tr>
+<tr>
+<td align="left">limit</td>
+<td align="left">Number of records to return</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>10000</code></td>
+<td align="left">optional</td>
+<td align="left">0 to 10,000</td>
+</tr>
+<tr>
+<td align="left">offset</td>
+<td align="left">Offset of page to return</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>0</code></td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">output</td>
+<td align="left">Format of data to return</td>
+<td align="left"><code>str</code></td>
+<td align="left"><code>json</code></td>
+<td align="left">optional</td>
+<td align="left"><code>json</code><br><code>pandas</code></td>
+</tr>
+<tr>
+<td align="left">limit</td>
+<td align="left">Number of records to return</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>10000</code></td>
+<td align="left">optional</td>
+<td align="left">0 to 10,000</td>
+</tr>
+<tr>
+<td align="left">friendly_fields</td>
+<td align="left">Replace keys / column names with friendlier title</td>
+<td align="left"><code>bool</code></td>
+<td align="left"><code>False</code></td>
+<td align="left">optional</td>
+<td align="left"><code>True</code><br><code>False</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Example</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">bankfind</span> <span class="k">as</span> <span class="nn">bf</span>
+
+<span class="hll"><span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_failures</span><span class="p">()</span>
+</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+
+</div>
+<input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">Data</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;INTINC2&#39;</span><span class="p">:</span> <span class="mi">51722726</span><span class="p">,</span>
+        <span class="s1">&#39;EXTRA&#39;</span><span class="p">:</span> <span class="mi">1316</span><span class="p">,</span>
+        <span class="s1">&#39;LNATRES&#39;</span><span class="p">:</span> <span class="mi">9769341</span><span class="p">,</span>
+        <span class="s1">&#39;chrtrest&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;STNAME&#39;</span><span class="p">:</span> <span class="s1">&#39;United States and Other Areas&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ILNS&#39;</span><span class="p">:</span> <span class="mi">39718788</span><span class="p">,</span>
+        <span class="s1">&#39;LNAG&#39;</span><span class="p">:</span> <span class="mi">3306388</span><span class="p">,</span>
+        <span class="s1">&#39;EINTEXP2&#39;</span><span class="p">:</span> <span class="mi">10348941</span><span class="p">,</span>
+        <span class="s1">&#39;EPREMAGG&#39;</span><span class="p">:</span> <span class="mi">2063405</span><span class="p">,</span>
+        <span class="s1">&#39;YEAR&#39;</span><span class="p">:</span> <span class="s1">&#39;2019&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;BKPREM&#39;</span><span class="p">:</span> <span class="mi">8315925</span><span class="p">,</span>
+        <span class="s1">&#39;INTAN&#39;</span><span class="p">:</span> <span class="mi">12025281</span><span class="p">,</span>
+        <span class="s1">&#39;LNRE&#39;</span><span class="p">:</span> <span class="mi">444072342</span><span class="p">,</span>
+        <span class="s1">&#39;chartoth&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;IGLSEC&#39;</span><span class="p">:</span> <span class="mi">482482</span><span class="p">,</span>
+        <span class="s1">&#39;OT_BIF&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;EAMINTAN&#39;</span><span class="p">:</span> <span class="mi">456598</span><span class="p">,</span>
+        <span class="s1">&#39;newcount&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;DEPI&#39;</span><span class="p">:</span> <span class="mi">840535976</span><span class="p">,</span>
+        <span class="s1">&#39;EFHLBADV&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="s1">&#39;tofail&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;SCMTGBK&#39;</span><span class="p">:</span> <span class="mi">292023664</span><span class="p">,</span>
+        <span class="s1">&#39;NTRTMLG&#39;</span><span class="p">:</span> <span class="mi">118177154</span><span class="p">,</span>
+        <span class="s1">&#39;OEA&#39;</span><span class="p">:</span> <span class="mi">1483578</span><span class="p">,</span>
+        <span class="s1">&#39;EFREPP&#39;</span><span class="p">:</span> <span class="mi">90846</span><span class="p">,</span>
+        <span class="s1">&#39;LNLSGR&#39;</span><span class="p">:</span> <span class="mi">655127513</span><span class="p">,</span>
+        <span class="s1">&#39;NETINC&#39;</span><span class="p">:</span> <span class="mi">15194171</span><span class="p">,</span>
+        <span class="s1">&#39;TOT_OTS&#39;</span><span class="p">:</span> <span class="mi">334</span><span class="p">,</span>
+        <span class="s1">&#39;CONS&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;OTHNBORR&#39;</span><span class="p">:</span> <span class="mi">91479748</span><span class="p">,</span>
+        <span class="s1">&#39;LNREMULT&#39;</span><span class="p">:</span> <span class="mi">68529412</span><span class="p">,</span>
+        <span class="s1">&#39;P9LNLS&#39;</span><span class="p">:</span> <span class="mi">7463014</span><span class="p">,</span>
+        <span class="s1">&#39;COUNT&#39;</span><span class="p">:</span> <span class="mi">659</span><span class="p">,</span>
+        <span class="s1">&#39;LNRERES&#39;</span><span class="p">:</span> <span class="mi">253541537</span><span class="p">,</span>
+        <span class="s1">&#39;EQCS&#39;</span><span class="p">:</span> <span class="mi">790384</span><span class="p">,</span>
+        <span class="s1">&#39;SCAGE&#39;</span><span class="p">:</span> <span class="mi">304050945</span><span class="p">,</span>
+        <span class="s1">&#39;LNRECONS&#39;</span><span class="p">:</span> <span class="mi">23453492</span><span class="p">,</span>
+        <span class="s1">&#39;TOT_FDIC&#39;</span><span class="p">:</span> <span class="mi">325</span><span class="p">,</span>
+        <span class="s1">&#39;EINTEXP&#39;</span><span class="p">:</span> <span class="mi">10348941</span><span class="p">,</span>
+        <span class="s1">&#39;TPD&#39;</span><span class="p">:</span> <span class="mi">13656751</span><span class="p">,</span>
+        <span class="s1">&#39;LNCI&#39;</span><span class="p">:</span> <span class="mi">43378018</span><span class="p">,</span>
+        <span class="s1">&#39;EQNM&#39;</span><span class="p">:</span> <span class="mi">125002942</span><span class="p">,</span>
+        <span class="s1">&#39;INTBLIB&#39;</span><span class="p">:</span> <span class="mi">1007906756</span><span class="p">,</span>
+        <span class="s1">&#39;liqasstd&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;SC&#39;</span><span class="p">:</span> <span class="mi">385021771</span><span class="p">,</span>
+        <span class="s1">&#39;INTBAST&#39;</span><span class="p">:</span> <span class="mi">1096557030</span><span class="p">,</span>
+        <span class="s1">&#39;EDEPDOM&#39;</span><span class="p">:</span> <span class="mi">8287049</span><span class="p">,</span>
+        <span class="s1">&#39;ILNDOM&#39;</span><span class="p">:</span> <span class="mi">39718603</span><span class="p">,</span>
+        <span class="s1">&#39;NCLNLS&#39;</span><span class="p">:</span> <span class="mi">11414221</span><span class="p">,</span>
+        <span class="s1">&#39;UNINC&#39;</span><span class="p">:</span> <span class="mi">133264</span><span class="p">,</span>
+        <span class="s1">&#39;ISC&#39;</span><span class="p">:</span> <span class="mi">10339424</span><span class="p">,</span>
+        <span class="s1">&#39;LIABEQ&#39;</span><span class="p">:</span> <span class="mi">1153906385</span><span class="p">,</span>
+        <span class="s1">&#39;tochrt&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="s1">&#39;IFEE&#39;</span><span class="p">:</span> <span class="mi">865589</span><span class="p">,</span>
+        <span class="s1">&#39;TOT_SAVE&#39;</span><span class="p">:</span> <span class="mi">659</span><span class="p">,</span>
+        <span class="s1">&#39;LNRESRE&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="s1">&#39;alsonew&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;NUMEMP&#39;</span><span class="p">:</span> <span class="mi">121746</span><span class="p">,</span>
+        <span class="s1">&#39;ASSET&#39;</span><span class="p">:</span> <span class="mi">1153906405</span><span class="p">,</span>
+        <span class="s1">&#39;TINTINC&#39;</span><span class="p">:</span> <span class="mi">11723463</span><span class="p">,</span>
+        <span class="s1">&#39;NALNLS&#39;</span><span class="p">:</span> <span class="mi">3951207</span><span class="p">,</span>
+        <span class="s1">&#39;EOTHNINT&#39;</span><span class="p">:</span> <span class="mi">14513593</span><span class="p">,</span>
+        <span class="s1">&#39;TRADES&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;ESAL&#39;</span><span class="p">:</span> <span class="mi">12889946</span><span class="p">,</span>
+        <span class="s1">&#39;ILNLS&#39;</span><span class="p">:</span> <span class="mi">39999263</span><span class="p">,</span>
+        <span class="s1">&#39;LIAB&#39;</span><span class="p">:</span> <span class="mi">1028873691</span><span class="p">,</span>
+        <span class="s1">&#39;LNDEP&#39;</span><span class="p">:</span> <span class="mi">417597</span><span class="p">,</span>
+        <span class="s1">&#39;OTHBFHLB&#39;</span><span class="p">:</span> <span class="mi">75972627</span><span class="p">,</span>
+        <span class="s1">&#39;ITAX&#39;</span><span class="p">:</span> <span class="mi">4361954</span><span class="p">,</span>
+        <span class="s1">&#39;EQCDIVP&#39;</span><span class="p">:</span> <span class="mi">12402</span><span class="p">,</span>
+        <span class="s1">&#39;SCRES&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="s1">&#39;TRADE&#39;</span><span class="p">:</span> <span class="mi">356945</span><span class="p">,</span>
+        <span class="s1">&#39;MISSADJ&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;FD_BIF&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;CRLNLS&#39;</span><span class="p">:</span> <span class="mi">1422110</span><span class="p">,</span>
+        <span class="s1">&#39;LS&#39;</span><span class="p">:</span> <span class="mi">5575099</span><span class="p">,</span>
+        <span class="s1">&#39;tomerg&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+        <span class="s1">&#39;ELNATR&#39;</span><span class="p">:</span> <span class="mi">5247975</span><span class="p">,</span>
+        <span class="s1">&#39;LNCRCD&#39;</span><span class="p">:</span> <span class="mi">99551689</span><span class="p">,</span>
+        <span class="s1">&#39;INTINC&#39;</span><span class="p">:</span> <span class="mi">51722726</span><span class="p">,</span>
+        <span class="s1">&#39;EQUPTOT&#39;</span><span class="p">:</span> <span class="mi">70024149</span><span class="p">,</span>
+        <span class="s1">&#39;CHBALI&#39;</span><span class="p">:</span> <span class="mi">64693509</span><span class="p">,</span>
+        <span class="s1">&#39;EQPP&#39;</span><span class="p">:</span> <span class="mi">282890</span><span class="p">,</span>
+        <span class="s1">&#39;PTXNOINC&#39;</span><span class="p">:</span> <span class="mi">19078526</span><span class="p">,</span>
+        <span class="s1">&#39;OINTINC&#39;</span><span class="p">:</span> <span class="mi">11723463</span><span class="p">,</span>
+        <span class="s1">&#39;tortc&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;ILS&#39;</span><span class="p">:</span> <span class="mi">280475</span><span class="p">,</span>
+        <span class="s1">&#39;FD_SAIF&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;EQNWCERT&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="s1">&#39;OINTBOR&#39;</span><span class="p">:</span> <span class="mi">85304294</span><span class="p">,</span>
+        <span class="s1">&#39;SCUST&#39;</span><span class="p">:</span> <span class="mi">12170713</span><span class="p">,</span>
+        <span class="s1">&#39;combos&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+        <span class="s1">&#39;P3LNLS&#39;</span><span class="p">:</span> <span class="mi">6193737</span><span class="p">,</span>
+        <span class="s1">&#39;OTLNCNTA&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="s1">&#39;OTHLIAB&#39;</span><span class="p">:</span> <span class="mi">16342193</span><span class="p">,</span>
+        <span class="s1">&#39;IFREPO&#39;</span><span class="p">:</span> <span class="mi">18439</span><span class="p">,</span>
+        <span class="s1">&#39;LNLSNET&#39;</span><span class="p">:</span> <span class="mi">645358172</span><span class="p">,</span>
+        <span class="s1">&#39;LNCONOT1&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="s1">&#39;EQCDIVC&#39;</span><span class="p">:</span> <span class="mi">13089203</span><span class="p">,</span>
+        <span class="s1">&#39;SCUSA&#39;</span><span class="p">:</span> <span class="mi">316221658</span><span class="p">,</span>
+        <span class="s1">&#39;DRLNLS&#39;</span><span class="p">:</span> <span class="mi">7211296</span><span class="p">,</span>
+        <span class="s1">&#39;OTHBORR&#39;</span><span class="p">:</span> <span class="mi">1685904</span><span class="p">,</span>
+        <span class="s1">&#39;EQCDIV&#39;</span><span class="p">:</span> <span class="mi">13101605</span><span class="p">,</span>
+        <span class="s1">&#39;EDEP&#39;</span><span class="p">:</span> <span class="mi">8287065</span><span class="p">,</span>
+        <span class="s1">&#39;BRWDMONY&#39;</span><span class="p">:</span> <span class="mi">1685904</span><span class="p">,</span>
+        <span class="s1">&#39;comboass&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;FREPO&#39;</span><span class="p">:</span> <span class="mi">1126633</span><span class="p">,</span>
+        <span class="s1">&#39;CHBAL&#39;</span><span class="p">:</span> <span class="mi">73009001</span><span class="p">,</span>
+        <span class="s1">&#39;ALLOTHER&#39;</span><span class="p">:</span> <span class="mi">14950385</span><span class="p">,</span>
+        <span class="s1">&#39;FREPP&#39;</span><span class="p">:</span> <span class="mi">6067807</span><span class="p">,</span>
+        <span class="s1">&#39;IRAKEOGH&#39;</span><span class="p">:</span> <span class="mi">123424709</span><span class="p">,</span>
+        <span class="s1">&#39;OT_SAIF&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;ORE&#39;</span><span class="p">:</span> <span class="mi">302690</span><span class="p">,</span>
+        <span class="s1">&#39;SCMUNI&#39;</span><span class="p">:</span> <span class="mi">10308292</span><span class="p">,</span>
+        <span class="s1">&#39;ESUBND&#39;</span><span class="p">:</span> <span class="mi">278</span><span class="p">,</span>
+        <span class="s1">&#39;SCUS&#39;</span><span class="p">:</span> <span class="mi">316221658</span><span class="p">,</span>
+        <span class="s1">&#39;ITRADE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;OINTEXP&#39;</span><span class="p">:</span> <span class="mi">1777028</span><span class="p">,</span>
+        <span class="s1">&#39;liqunass&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;DDT&#39;</span><span class="p">:</span> <span class="mi">58550380</span><span class="p">,</span>
+        <span class="s1">&#39;EDEPFOR&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+        <span class="s1">&#39;LNALLOTH&#39;</span><span class="p">:</span> <span class="mi">42378773</span><span class="p">,</span>
+        <span class="s1">&#39;SCEQ&#39;</span><span class="p">:</span> <span class="mi">258574</span><span class="p">,</span>
+        <span class="s1">&#39;ITAXR&#39;</span><span class="p">:</span> <span class="mi">19078526</span><span class="p">,</span>
+        <span class="s1">&#39;ILNFOR&#39;</span><span class="p">:</span> <span class="mi">185</span><span class="p">,</span>
+        <span class="s1">&#39;ICHBAL&#39;</span><span class="p">:</span> <span class="mi">1365600</span><span class="p">,</span>
+        <span class="s1">&#39;LNRELOC&#39;</span><span class="p">:</span> <span class="mi">21179492</span><span class="p">,</span>
+        <span class="s1">&#39;STNUM&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SUBLLPF&#39;</span><span class="p">:</span> <span class="mi">26052</span><span class="p">,</span>
+        <span class="s1">&#39;OONONII&#39;</span><span class="p">:</span> <span class="mi">11554071</span><span class="p">,</span>
+        <span class="s1">&#39;CORPBNDS&#39;</span><span class="p">:</span> <span class="mi">55721897</span><span class="p">,</span>
+        <span class="s1">&#39;NONIX&#39;</span><span class="p">:</span> <span class="mi">29466944</span><span class="p">,</span>
+        <span class="s1">&#39;NCHGREC&#39;</span><span class="p">:</span> <span class="mi">5789186</span><span class="p">,</span>
+        <span class="s1">&#39;OTHASST&#39;</span><span class="p">:</span> <span class="mi">28389467</span><span class="p">,</span>
+        <span class="s1">&#39;DEP&#39;</span><span class="p">:</span> <span class="mi">921025698</span><span class="p">,</span>
+        <span class="s1">&#39;NIM&#39;</span><span class="p">:</span> <span class="mi">41373785</span><span class="p">,</span>
+        <span class="s1">&#39;LNCON&#39;</span><span class="p">:</span> <span class="mi">141930462</span><span class="p">,</span>
+        <span class="s1">&#39;EQSUR&#39;</span><span class="p">:</span> <span class="mi">53905519</span><span class="p">,</span>
+        <span class="s1">&#39;SAVINGS&#39;</span><span class="p">:</span> <span class="mi">659</span><span class="p">,</span>
+        <span class="s1">&#39;ORET&#39;</span><span class="p">:</span> <span class="mi">302690</span><span class="p">,</span>
+        <span class="s1">&#39;CB_SI&#39;</span><span class="p">:</span> <span class="s1">&#39;SI&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TOINTEXP&#39;</span><span class="p">:</span> <span class="mi">2061876</span><span class="p">,</span>
+        <span class="s1">&#39;LNMUNI&#39;</span><span class="p">:</span> <span class="mi">1630491</span><span class="p">,</span>
+        <span class="s1">&#39;LNRENRES&#39;</span><span class="p">:</span> <span class="mi">98547901</span><span class="p">,</span>
+        <span class="s1">&#39;NONII&#39;</span><span class="p">:</span> <span class="mi">12419660</span><span class="p">,</span>
+        <span class="s1">&#39;BRO&#39;</span><span class="p">:</span> <span class="mi">104643398</span><span class="p">,</span>
+        <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;SI_2019_0&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href=".." title="Home" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../filtering/" title="Filtering" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Filtering
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/dpguthrie" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/douglas-guthrie-07994a48/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://medium.com/@douglas.p.guthrie" target="_blank" rel="noopener" title="medium.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 32v448h448V32H0zm372.2 106.1l-24 23c-2.1 1.6-3.1 4.2-2.7 6.7v169.3c-.4 2.6.6 5.2 2.7 6.7l23.5 23v5.1h-118V367l24.3-23.6c2.4-2.4 2.4-3.1 2.4-6.7V199.8l-67.6 171.6h-9.1L125 199.8v115c-.7 4.8 1 9.7 4.4 13.2l31.6 38.3v5.1H71.2v-5.1l31.6-38.3c3.4-3.5 4.9-8.4 4.1-13.2v-133c.4-3.7-1-7.3-3.8-9.8L75 138.1V133h87.3l67.4 148L289 133.1h83.2v5z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://dpguthrie.com" target="_blank" rel="noopener" title="dpguthrie.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.d1f5a259.min.js"></script>
+      <script src="../assets/javascripts/bundle.f9edbbd5.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.fae956e7.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../js/termynal.js"></script>
+      
+        <script src="../js/custom.js"></script>
+      
+    
+  </body>
+</html>
