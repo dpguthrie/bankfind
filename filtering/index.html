@@ -523,7 +523,7 @@
 <h3 id="strings">strings<a class="headerlink" href="#strings" title="Permanent link">&para;</a></h3>
 <p><strong>Syntax</strong>: <code>&lt;FIELD&gt;:&lt;VALUE&gt;</code></p>
 <p>First, let's filter based on cert, which as you can see from the <code>meta_dict</code> is a string field.</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">bf</span><span class="o">.</span><span class="n">meta_dict</span><span class="p">[</span><span class="s1">&#39;failures&#39;</span><span class="p">][</span><span class="s1">&#39;CERT&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">bf</span><span class="o">.</span><span class="n">meta_dict</span><span class="p">[</span><span class="s1">&#39;institutions&#39;</span><span class="p">][</span><span class="s1">&#39;CERT&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
 <span class="s1">&#39;string&#39;</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_institutions</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="s2">&quot;CERT:57295&quot;</span><span class="p">)</span>
@@ -561,7 +561,7 @@
 </code></pre></div>
 
 <h4 id="inclusive">inclusive<a class="headerlink" href="#inclusive" title="Permanent link">&para;</a></h4>
-<p>Use brackets <code>[]</code> and the range will the include the beginning and end dates used in the range</p>
+<p>Use brackets <code>[]</code> and the range will include the beginning and end dates used in the range</p>
 <p><strong>Syntax</strong>: <code>&lt;FIELD&gt;:[yyyy-mm-dd TO yyyy-mm-dd]</code></p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_institutions</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="s1">&#39;DATEUPDT:[2010-01-01 TO 2018-12-31]&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
@@ -578,23 +578,24 @@
 <span class="mi">5530</span>
 </code></pre></div>
 
+<p><em>The filter above will retrieve institutions with assets greater than 25 million and less than 75 million</em></p>
 <h4 id="inclusive_1">inclusive<a class="headerlink" href="#inclusive_1" title="Permanent link">&para;</a></h4>
 <p>Use brackets <code>[]</code> and the range will the include the beginning and end dates used in the range</p>
 <p><strong>Syntax</strong>: <code>&lt;FIELD&gt;:[Number TO Number]</code></p>
-<p><em>The filter below will retrieve institutions with assets greater than or equal to 2 billion or less than or equal to 5 billion.</em></p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_institutions</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="s1">&#39;ASSET:[2000000 TO 5000000]&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
 <span class="mi">685</span>
 </code></pre></div>
 
+<p><em>The filter above will retrieve institutions with assets greater than or equal to 2 billion or less than or equal to 5 billion.</em></p>
 <h4 id="wildcard">wildcard<a class="headerlink" href="#wildcard" title="Permanent link">&para;</a></h4>
 <p><strong>Syntax</strong>: <code>&lt;FIELD&gt;:[Number to *]</code></p>
-<p><em>The filter below will retrieve institutions with assets greater than or equal to 5 billion.</em></p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_institutions</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="s1">&#39;ASSET:[5000000 TO *]&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_institutions</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="s1">&#39;ASSET:{5000000 TO *]&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
 <span class="mi">602</span>
 </code></pre></div>
 
+<p><em>The filter above will retrieve institutions with assets greater than 5 billion.</em></p>
 <h2 id="search">Search<a class="headerlink" href="#search" title="Permanent link">&para;</a></h2>
 <p>Flexible text search is also available. Search supports text search and fuzzy matching, as opposed to filters that are exact matches.  Currently, only two endpoints support the search functionality:  <code>get_institutions</code> and <code>get_history</code>.</p>
 <p>The only field that currently supports the search functionality is <code>NAME</code>.  It's a similar syntax to the <a href="#strings">string filter</a>.</p>
@@ -603,7 +604,7 @@
 <span class="mi">5</span>
 </code></pre></div>
 
-<p>Take it a little further:</p>
+<p>Taking it a little further:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_institutions</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="s1">&#39;NAME:AMG National&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
 <span class="mi">1</span>
