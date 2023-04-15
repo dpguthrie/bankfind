@@ -50,6 +50,14 @@ class BF:
             'offset': 0,
             'format': 'json',
             'search': False
+        },
+        'financials': {
+            'sort_by': 'REPDTE',
+            'sort_order': 'DESC',
+            'limit': 10000,
+            'offset': 0,
+            'format': 'json',
+            'download': False
         }
     }
 
@@ -121,6 +129,7 @@ class BF:
             search: str = None,
             **kwargs):
         params = self._construct_params(key, filters, search, **kwargs)
+        print(urllib.parse.urlencode(params))
         r = requests.get(
             f"https://banks.data.fdic.gov/api/{key}",
             params=urllib.parse.urlencode(params)

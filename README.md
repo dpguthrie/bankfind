@@ -30,13 +30,14 @@
 
 **bankfind** is a python interface to publically available bank data from the FDIC.
 
-There are currently, as of 8/11/20, five endpoints that the FDIC has exposed to the public:
+There are currently, as of 4/15/2023, five endpoints that the FDIC has exposed to the public:
 
 - **failures** - returns detail on failed financial institutions
 - **institutions** - returns a list of financial institutions
 - **history** - returns detail on structure change events
 - **locations** - returns locations / branches of financial institutions
 - **summary** - returns aggregate financial and structure data, subtotaled by year, regarding financial institutions
+- **financial** - returns financial information for financial institutions
 
 ## Requirements
 

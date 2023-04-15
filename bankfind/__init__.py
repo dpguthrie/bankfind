@@ -4,5 +4,5 @@ __version__ = '0.0.1'
 
 
 from .main import (get_failures, get_history, get_institutions,  # noqa
-                   get_locations, get_summary)
+                   get_locations, get_summary, get_financials)
 from .metadata import meta_dict  # noqa

@@ -152,3 +152,44 @@ def get_summary(filters: str = None, **kwargs):
         Return friendly field names
     """
     return BF()._get_data("summary", filters, **kwargs)
+
+def get_financials(filters: str = None, **kwargs):
+    """
+    Get Financial Information for FDIC Insured Institutions
+
+    Arguments
+    ---------
+    filters: str, default None, optional
+        Filter for the bank search
+
+    Keyword Arguments
+    -----------------
+    fields: str, default ALL FIELDS, optional
+        Comma delimited list of fields to search
+    sort_by: str, default OFFICES, optional
+        Field name by which to sort returned data
+    sort_order: str, default ASC, optional
+        Indicator if ascending (ASC) or descending (DESC)
+    limit: int, default 10,000, optional
+        Number of records to return.  Maximum is 10,000
+    offset: int, default 0, optional
+        Offset of page to return
+    agg_by: str, default blank
+        The field(s) by which data will be aggregated.
+    agg_term_fields: str, default blank
+        The field(s) for which aggregations will be counted for each unique term.
+    agg_sum_fields: str, default blank
+        The field(s) for which aggregations will be summed or aggregated.
+    agg_limit: int,
+        The limit on how many aggregated results will be displayed
+    format: str, default json, optional
+        Format of the data to return
+    download: bool, default False
+        Whether the data should be downloaded as a file.
+    filename: str,
+        The filename to use when downloading data
+    friendly_fields: bool, default False, optional
+        Return friendly field names
+    """
+    return BF()._get_data("financials", filters, **kwargs)
+
